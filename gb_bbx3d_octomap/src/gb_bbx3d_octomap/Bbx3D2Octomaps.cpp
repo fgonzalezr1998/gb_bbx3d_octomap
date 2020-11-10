@@ -96,6 +96,7 @@ Bbx3D2Octomaps::buildOctomap(const gb_visual_detection_3d_msgs::msg::BoundingBox
       for (double x = bbox.xmin; x < bbox.xmax; x+= step) {
         if (!isNewCell(x, y, z, step / 2.0))
           continue;
+
         *point = octomap::point3d(x, y, z);
         octree_->updateInnerOccupancy();
         octree_->setNodeValue(*point, 0.6f, false);
